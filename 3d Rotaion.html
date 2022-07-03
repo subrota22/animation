@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body{
+            background-color: black;
+        }
+        .div{
+           top: 0;
+           left: 0;
+           height:28rem;
+           width:32rem;
+           position: relative;
+           transform-style: preserve-3d;
+           animation: box infinite linear forwards 4s;
+           margin: auto;
+           justify-content: center;
+           margin-top: 12rem;
+           margin-bottom: 12rem;
+        }
+        @keyframes box {
+            0%{
+                transform:rotateY(0deg);
+            }
+            100%{
+                transform:rotateY(360deg);
+            }
+        }
+        .div > div {
+           position:absolute;
+           transform-style: preserve-3d;
+           top: 0;
+           left: 0;
+           height: 100%;
+           width: 100%;
+        }
+        .div > div > .span {
+           position:absolute;
+           top: 0;
+           left: 0;
+           height: 100%;
+           width: 100%;
+           background-color: var(--backcolor);
+           box-shadow: 0 2rem 8rem lime;
+           border-radius:4rem;
+           filter: hue-rotate(20deg);
+           transform: rotateY(calc(70deg * var(--box))) rotateX(calc(10deg * var(--box)));
+        } 
+        .div:hover  >   div > .span {
+           position:absolute;
+           top: 0;
+           left: 0;
+           height: 100%;
+           width: 100%;
+           background-image: linear-gradient(to top , green , yellow , lime);
+           box-shadow: 0 2rem 8rem rgb(17, 4, 202);
+           border-radius:4rem;
+           filter: hue-rotate(20deg);
+           transform: rotateY(calc(78deg * var(--box)));
+           transition-duration: 5s;
+        }
+        html{font-size: 62.5%;}
+        @media screen and (max-width:1200px) {html{font-size: 62.5%;} }
+        @media screen and (max-width:1000px) {html{font-size: 54.5%;} }
+        @media screen and (max-width:900px) {html{font-size: 42.5%;} }
+        @media screen and (max-width:700px) {html{font-size: 38.5%;} }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Box </title>
+</head>
+<body>
+
+    <div class="div">
+    <div>
+        <div class="span" style="--box:0;  --backcolor: blue; " ></div>
+        <div class="span" style="--box:1;  --backcolor: cornflowerblue;"></div>
+        <div class="span" style="--box:2;  --backcolor: darkgreen;" ></div>
+        <div class="span" style="--box:3;  --backcolor: darkslateblue;"></div>
+    </div>
+    </div>
+    <svg style="position: absolute; top: -99999px" xmlns="http://www.w3.org/2000/svg">
+        <filter id="svgBlur" x="-5%" y="-5%" width="110%" height="110%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+        </filter>
+      </svg>
+</body>
+</html>
